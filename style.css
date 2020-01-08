@@ -1,0 +1,23 @@
+article > section {
+    display: flex;
+}
+
+section > h5 {
+    text-align: center;
+}
+
+.build_section {
+    display: flex;
+    flex-direction: column;
+    /*just for now*/
+    align-items: flex-end;
+}
+
+.other_section {
+    display: flex;
+    overflow: scroll;
+}
+
+footer {
+    max-width: 63em;
+}
