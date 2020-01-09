@@ -9,11 +9,11 @@ section {
 .build_section div{
     max-width: 55%;
     margin: auto;
-
 }
 
 div > img {
     width: 100%;
+    height: 100%;
 }
 
 .other_section {
@@ -22,7 +22,7 @@ div > img {
 }
 
 .other_section > div {
-    height: 40vh;
+    height: 250px;
     flex-grow: 1;
     max-width: 20%;
 }
