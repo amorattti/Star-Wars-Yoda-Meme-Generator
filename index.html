@@ -93,7 +93,7 @@
             });
         }
 
-       async redrawImages(i = 0) {           
+       async redrawImages() {           
             var canvas = document.getElementById('canvas');
             var context = canvas.getContext('2d');
             canvas.height = 900;
@@ -106,15 +106,13 @@
                 sources[imageIndex] = build.children[i].src
             }
 
-            this.loadImages(sources).then(images => draw(images))
-    
-            function draw(images) {                
-                for(let prop in images) {
-                    context.drawImage(images[prop], 100, dyCanvas, 400, 237);  
-                    dyCanvas += images[prop].height / 2 + 50;          
-                }                         
-            }
-       
+           const imagesObj = await this.loadImages(sources)
+            
+            for(let prop in imagesObj) {
+                    context.drawImage(imagesObj[prop], 100, dyCanvas, 400, 237);  
+                    dyCanvas += imagesObj[prop].height / 2 + 50;          
+                }   
+   
         }
 
         loadImages(sources) {
