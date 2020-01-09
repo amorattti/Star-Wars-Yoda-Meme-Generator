@@ -41,42 +41,111 @@
 </body>
     <script>
 
-    
-        class mainFunction {
-            constructor(build, other, start_meme = 1, end_meme = 5) {
-                this.build = build;
-                this.other = other;
-                this.from = start_meme;
-                this.to = end_meme;
 
-                this.createBuildSection();
-                this.createBackupSection();
-                dragula([this.build, this.other]);
-            }
+    class MainFunction {
+        constructor(build, other, start_meme = 1, end_meme = 5) {
+            this.build = build;
+            this.other = other;
+            this.from = start_meme;
+            this.to = end_meme;
 
-            createBuildSection() {
-                const path = `build_img/`;
-                this.createImages(path, this.build, this.from, this.to)
-            }
-
-            createBackupSection() {           
-                const path = `other_img/`;
-                this.createImages(path, this.other, this.from, this.to)
-            }
-
-            createImages(path, parent, from, to) {
-                for (let i = from; i < to; i++) {
-                    const image = document.createElement('img');
-                    image.src = path + `${i}.jpg`;
-                    image.style.maxWidth = '35%';
-                    parent.appendChild(image)
-                }          
-            }
+            this.createBuildSection();
+            this.createOtherSection();
+      
         }
-        const build_Section = document.getElementById("build");
-        const backup_section = document.getElementById('other');
-        const MainFunction = new mainFunction(build_Section, backup_section);
-       // MainFunction.createBuildSection();
+
+        createBuildSection() {
+            const path = `build_img/`;
+            this.createImages(path, this.build, this.from, this.to)
+        }
+
+        createOtherSection() {           
+            const path = `other_img/`;
+            this.createImages(path, this.other, this.from, this.to)
+        }
+
+        createImages(path, parent, from, to) {
+            for (let i = from; i < to; i++) {
+                const image = document.createElement('img');
+                image.src = path + `${i}.jpg`;
+                image.style.maxWidth = '35%';
+                parent.appendChild(image)
+            }          
+        } 
+    }
+       
+      
+    class CanvasApi extends MainFunction {
+        constructor(build, other){
+            super(build, other);
+
+            this.dnd();
+            this.redrawImages() 
+        }
+
+        dnd() {       
+            const drake = dragula([build, other]);
+            drake.on('drop', (el, target, source) => {
+                if (source !== target || target === build) {
+                    this.redrawImages();
+
+                }
+            });
+        }
+
+       async redrawImages(i = 0) {           
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            canvas.height = 900;
+            canvas.width = 700;
+            var sources = {};
+            let dyCanvas = 0;
+
+            for(let i = 0; i < build.children.length; ++i) {
+                const imageIndex = 'image' + i
+                sources[imageIndex] = build.children[i].src
+            }
+
+            this.loadImages(sources).then(images => draw(images))
+    
+            function draw(images) {                
+                for(let prop in images) {
+                    context.drawImage(images[prop], 100, dyCanvas, 400, 237);  
+                    dyCanvas += images[prop].height / 2 + 50;          
+                }                         
+            }
+       
+        }
+
+        loadImages(sources) {
+            var images = {};
+            var loadedImages = 0;
+            var numImages = 0;
+            // get num of sources
+            return new Promise((resolve) => {
+                for(var src in sources) {
+                numImages++;
+                }
+                for(var src in sources) {
+                    images[src] = new Image();
+                    images[src].onload = function() {
+                        if(++loadedImages >= numImages) {
+                            resolve(images);
+                        }
+                    };
+                    images[src].src = sources[src];
+                }
+            })
+        
+        }
+
+    }
+
+
+    const build_Section = document.getElementById("build");
+    const backup_section = document.getElementById('other');
+    const canvasApi = new CanvasApi(build_Section, backup_section);
+
     </script>
      
 </html>

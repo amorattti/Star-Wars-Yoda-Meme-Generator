@@ -3,7 +3,7 @@ article > section {
 }
 
 section > h5 {
-    text-align: center;
+    text-align: right;
 }
 
 .build_section {
