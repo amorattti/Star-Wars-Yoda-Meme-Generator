@@ -1,23 +1,34 @@
-article > section {
+body {
+    text-align: center;
+}
+
+section {
     display: flex;
 }
 
-section > h5 {
-    text-align: right;
+.build_section div{
+    max-width: 55%;
+    margin: auto;
 }
 
-.build_section {
-    display: flex;
-    flex-direction: column;
-    /*just for now*/
-    align-items: flex-end;
+div > img {
+    width: 100%;
 }
 
 .other_section {
     display: flex;
-    overflow: scroll;
+    flex-wrap: wrap;
 }
 
-footer {
-    max-width: 63em;
+.other_section > div {
+    height: 40vh;
+    flex-grow: 1;
+    max-width: 20%;
+}
+
+.other_section > div > img {
+    max-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
 }
