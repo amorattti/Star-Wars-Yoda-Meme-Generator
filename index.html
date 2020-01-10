@@ -64,6 +64,7 @@
                 const input = document.createElement('input');
                 const div = document.createElement('div');
                 input.type = 'text';
+                input.placeholder = 'click here if you wanna add some text';
                 image.src = path + `${i}.jpg`;
                 div.appendChild(image);
                 div.appendChild(input);
@@ -78,40 +79,53 @@
             super(build, other);
             this.dnd();
             this.redrawImages(); 
+            this.setOnblurOnInputs(0)
         }
 
         dnd() {       
             const drake = dragula([build, other]);
             drake.on('drop', (el, target, source) => {
                 if (source !== target || target === build) {
-                    this.redrawImages();
+                    this.redrawImages();              
                 }
             });
         }
 
-       async redrawImages() {           
+        async redrawImages() {           
             const canvas = document.getElementById('canvas');
             const context = canvas.getContext('2d');
-             canvas.height = 1300;
+            canvas.height = 1300;
             canvas.width = 700;
             const sources = {};
             let dyCanvas = 0;
-
+            let i = 0;
             for(let i = 0; i < build.children.length; ++i) {
                 const imageIndex = 'image' + i
                 sources[imageIndex] = build.children[i].firstChild.src;           
             }
             
             const imagesObj = await this.loadImages(sources)
-           
+      
             for(let prop in imagesObj) {
+                const text = document.getElementsByTagName('input')[i].value;   //zmienić na dziecko konkretnego diwa (build_section) a nie całe
                 context.drawImage(imagesObj[prop], 0, dyCanvas, imagesObj[prop].width, imagesObj[prop].height - 20);  
                 dyCanvas += imagesObj[prop].height - 20;  
-                   
+                context.font = "25px Calibri";
+                context.fillStyle = "white";  
+                context.fillText(text, 120, dyCanvas - 20);
+                          
+                i++
             }  
+        }
 
-              console.log(dyCanvas)
-
+        setOnblurOnInputs(i) { //recuration function instead for lop
+            const inputs = document.getElementsByTagName('input');
+ 
+            if(i < inputs.length) {
+                inputs[i].onblur = () => this.redrawImages()      
+            
+                this.setOnblurOnInputs(i + 1) 
+            }      
         }
 
         loadImages(sources) {
@@ -134,6 +148,8 @@
                 }
             })     
         }
+
+        
 
     }
 

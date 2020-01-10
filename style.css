@@ -12,9 +12,23 @@ section > article {
     flex-grow: 1;
 }
 
-.build_section div{
+.build_section div {
+    display: flex;
+    align-items: flex-end;
     max-width: 55%;
     margin: auto;
+    position: relative;
+}
+
+.build_section div > input {
+    font-size: 25px;
+    position: absolute;
+    width: 100%;
+    background: none;
+    color: white;
+    border: none;
+    height: 50%;
+    text-align: center;
 }
 
 div > img {
@@ -44,3 +58,7 @@ div > img {
 .other_section > div > input {
   display: none;
 }
+
+::placeholder {
+    color: #ffffff8c;
+  }
