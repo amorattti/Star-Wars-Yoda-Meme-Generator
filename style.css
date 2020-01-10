@@ -1,9 +1,15 @@
 body {
     text-align: center;
+    font-size: 2em;
 }
 
 section {
     display: flex;
+    align-items: stretch;
+}
+
+section > article {
+    flex-grow: 1;
 }
 
 .build_section div{
@@ -24,7 +30,7 @@ div > img {
 .other_section > div {
     height: 250px;
     flex-grow: 1;
-    max-width: 20%;
+    max-width: 25%;
 }
 
 .other_section > div > img {
@@ -32,4 +38,9 @@ div > img {
     min-width: 100%;
     object-fit: cover;
     vertical-align: bottom;
+}
+
+
+.other_section > div > input {
+  display: none;
 }
