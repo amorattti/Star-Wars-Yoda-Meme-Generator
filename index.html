@@ -119,33 +119,7 @@
             link.href = this.canvas.toDataURL();
             link.download = 'mem.png'
         }
-
-        async redrawImages() {           
-            const context = this.canvas.getContext('2d');
-            canvas.height = 900;
-            canvas.width = 700;
-            const sources = {};
-            let dyCanvas = 0;
-            let i = 0;
-            for(let i = 0; i < build.children.length; ++i) {
-                const imageIndex = 'image' + i;
-                sources[imageIndex] = build.children[i].firstChild.src;           
-            }
-            
-            const imagesObj = await this.loadImages(sources)
-      
-            for(let prop in imagesObj) {
-                const text = document.getElementsByTagName('textarea')[i].value; 
-                context.drawImage(imagesObj[prop], 0, dyCanvas, imagesObj[prop].width, imagesObj[prop].height - 20);  
-                dyCanvas += imagesObj[prop].height - 20;  
-                context.font = "25px Calibri";
-                context.fillStyle = "white";  
-                context.fillText(text, 120, dyCanvas - 20);
-                          
-                i++
-            }       
-        }
-
+    
         setOnblurOnInputs(i) { //recuration function instead for lop
             const inputs = document.getElementsByTagName('textarea');
             console.log(inputs)
@@ -163,6 +137,32 @@
                 }*/  
                 this.setOnblurOnInputs(i + 1) 
             }      
+        }
+
+        async redrawImages() {           
+            const context = this.canvas.getContext('2d');
+            canvas.height = 900;
+            canvas.width = 700;
+            const sources = {};
+            let dyCanvas = 0;
+            let i = 0;
+            for(let i = 0; i < build.children.length; ++i) {
+                const imageIndex = 'image' + i;
+                sources[imageIndex] = build.children[i].firstChild.src;           
+            }
+            
+            const imagesObj = await this.loadImages(sources);
+      
+            for(let prop in imagesObj) {
+                const text = document.getElementsByTagName('textarea')[i].value; 
+                context.drawImage(imagesObj[prop], 0, dyCanvas, imagesObj[prop].width, imagesObj[prop].height - 20);  
+                dyCanvas += imagesObj[prop].height - 20;  
+                context.font = "bold 25px sans-serif";
+                context.fillStyle = "white";  
+                context.fillText(text, 160, dyCanvas - 20);
+                          
+                i++
+            }       
         }
 
         loadImages(sources) {
@@ -185,9 +185,6 @@
                 }
             })     
         }
-
-        
-
     }
     const build_Section = document.getElementById("build");
     const backup_section = document.getElementById('other');
