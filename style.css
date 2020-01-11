@@ -23,6 +23,8 @@ article > h5 {
 
 .build_section img {
     max-width: 250px;
+    width: 100%;
+    overflow: hidden;
 }
 
 .build_section > div:hover > textarea{
