@@ -1,39 +1,33 @@
-body {
+.container-fluid {
+    max-width: 1350px;
+}
+
+Header {
     text-align: center;
-    font-size: 2em;
+    margin: 50px 0;
 }
 
-section {
+article > h5 {
+    text-align: center;
+}
+
+.build_section {
     display: flex;
-    align-items: stretch;
-}
-
-section > article {
-    flex-grow: 1;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .build_section div {
     display: flex;
-    align-items: flex-end;
-    max-width: 55%;
-    margin: auto;
-    position: relative;
 }
 
-.build_section div > input {
-    font-size: 25px;
-    position: absolute;
-    width: 100%;
-    background: none;
-    color: white;
-    border: none;
-    height: 50%;
-    text-align: center;
+.build_section img {
+    max-width: 250px;
 }
 
-div > img {
-    width: 100%;
-    height: 100%;
+.build_section > div:hover > textarea {
+    opacity: 1!important;
+  
 }
 
 .other_section {
@@ -41,24 +35,24 @@ div > img {
     flex-wrap: wrap;
 }
 
-.other_section > div {
-    height: 250px;
-    flex-grow: 1;
-    max-width: 25%;
+.other_section div {
+    height: 200px;
+    width: 20%;
 }
 
-.other_section > div > img {
-    max-height: 100%;
-    min-width: 100%;
-    object-fit: cover;
-    vertical-align: bottom;
+.other_section div > img{
+    height: 100%;
 }
 
-
-.other_section > div > input {
-  display: none;
+.controllers {
+    margin: 20px 0;
 }
 
-::placeholder {
-    color: #ffffff8c;
-  }
+.
+
+@media (max-width: 767.98px) {
+
+    .container-fluid {
+     
+    }
+}
