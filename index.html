@@ -150,6 +150,7 @@
             const inputs = document.getElementsByTagName('textarea');
             console.log(inputs)
             if(i < inputs.length) {
+                inputs[i].onblur = () => this.redrawImages(); 
                 inputs[i].onkeydown = e => {
                     if(e.keyCode === 13) {
                         this.redrawImages(); 
