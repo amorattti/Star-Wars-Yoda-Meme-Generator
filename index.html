@@ -149,7 +149,7 @@
         async redrawImages() {           
             const context = this.canvas.getContext('2d');
          
-            canvas.width = 600;
+            
             const sources = {};
             let dyCanvas = 1;
             let i = 0;
@@ -165,6 +165,7 @@
 
                 const temp = context.getImageData(0, 0, canvas.width, canvas.height);
                 canvas.height = dyCanvas + imagesObj[prop].height;  
+                canvas.width = imagesObj[prop].width-200;
                 context.putImageData(temp, 0, 0);
 
                 context.drawImage(imagesObj[prop], 0, dyCanvas, imagesObj[prop].width-200, imagesObj[prop].height);  

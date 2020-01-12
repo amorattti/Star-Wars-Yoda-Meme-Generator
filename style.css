@@ -59,6 +59,7 @@ article a {
     max-height: 750px;
     overflow-y: scroll;
     cursor: zoom-in;
+    width: 540px;
 }
 
 .mirrorParentElem {
