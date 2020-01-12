@@ -50,6 +50,11 @@ article > h5 {
     margin: 20px 0;
 }
 
+.prewiev-inner {
+    max-height: 750px;
+    overflow-y: scroll;
+}
+
 @media (max-width: 767.98px) {
 
     .container-fluid {
