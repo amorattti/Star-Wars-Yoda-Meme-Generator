@@ -167,7 +167,7 @@
                 canvas.height = dyCanvas + imagesObj[prop].height;  
                 context.putImageData(temp, 0, 0);
 
-                context.drawImage(imagesObj[prop], 0, dyCanvas, imagesObj[prop].width, imagesObj[prop].height - 20);  
+                context.drawImage(imagesObj[prop], 0, dyCanvas, imagesObj[prop].width-200, imagesObj[prop].height);  
                 dyCanvas += imagesObj[prop].height - 20;  
                 context.font = "bold 25px sans-serif";
                 context.fillStyle = "white";  
