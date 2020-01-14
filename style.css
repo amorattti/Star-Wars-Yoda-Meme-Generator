@@ -6,7 +6,7 @@
 
 Header {
     text-align: center;
-    margin: 50px 0;
+    margin: 20px 0;
 }
 
 article > h5 {
@@ -73,7 +73,8 @@ article a {
     top: 0;
     text-align: center;
     background: rgba(0,0,0,0.6); 
-     backdrop-filter: blur(6px); 
+    backdrop-filter: blur(6px); 
+    overflow: hidden;
 }
 
 .active {
