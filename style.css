@@ -96,6 +96,10 @@ article a {
         max-height: 500px;
     
     }
+
+    .other_section div > img {
+        height: 75%;
+    }
 }
 
 
