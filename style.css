@@ -10,7 +10,7 @@ Header {
 }
 
 article > h5 {
-    text-align: center;
+    text-align: left;
 }
 
 article a {
@@ -20,7 +20,6 @@ article a {
 .build_section {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
 }
 
 .build_section div {
@@ -33,7 +32,7 @@ article a {
     overflow: hidden;
 }
 
-.build_section > div:hover > textarea{
+.build_section > div > textarea {
     opacity: 1!important; /*I know -,-*/
 }
 

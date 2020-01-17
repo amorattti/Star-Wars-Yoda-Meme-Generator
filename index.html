@@ -59,13 +59,17 @@
         }
 
         createBuildSection() {
+            const from = 1;
+            const to = 3
             const path = `build_img/`;
-            this.createImages(path, this.build, 1, 3);
+            this.createImages(path, this.build, from, to);
         }
 
-        createOtherSection() {           
+        createOtherSection() {   
+            const from = 1;
+            const to = 17;     
             const path = `other_img/`;
-            this.createImages(path, this.other, 1, 10);
+            this.createImages(path, this.other, from, to);
         }
 
         createImages(path, parent, from, to) {
@@ -94,8 +98,7 @@
                 },
                 deactivate(element) {
                     element.classList.add(INACTIVE_CSS);
-                    element.classList.remove(ACTIVE_CSS);
-              
+                    element.classList.remove(ACTIVE_CSS);             
                 }
             };
         }
@@ -132,7 +135,8 @@
             const ctx = this.canvas.getContext('2d');
             const mirrorCanvas = document.getElementById('mirrorCanvas');
             const mirrorCtx = mirrorCanvas.getContext('2d');
-            const copyImage = ctx.getImageData(0,0, this.canvas.width + 100, this.canvas.height + 100);
+            ctx.scale(1.5, 1.5);
+            const copyImage = ctx.getImageData(0,0, this.canvas.width, this.canvas.height );
 
             mirrorCanvas.height = this.canvas.height;
             mirrorCtx.putImageData(copyImage, 0,0);     
@@ -180,11 +184,13 @@
                 const linePosY = dyCanvas + height + 1;       
 
                 this.resize(linePosY, width, context);
-                context.drawImage(imgObj, 0, dyCanvas * 0.9, width * 0.7, height * 0.9);  
+                context.scale(0.7, 0.7);
+                context.drawImage(imgObj, 0, dyCanvas, width, height);  
                 dyCanvas += height;  
-                context.font = "bold 25px sans-serif";
+                context.font = "bold 40px sans-serif";
                 context.fillStyle = "white";  
-                context.fillText(text, 45, dyCanvas * 0.86);                         
+                context.textBaseline = "middle";
+                context.fillText(text, 85, dyCanvas - 36);                         
                 i++
             }              
         }
@@ -193,7 +199,7 @@
             const temp = context.getImageData(0, 0, canvas.width, canvas.height);
             this.canvas.height = linePosY * 0.9;  
             this.canvas.width = width * 0.7;
-            context.putImageData(temp, 0, 0);
+            context.putImageData(temp, 0, -.90);
         }
 
         loadImages(sources) {
