@@ -46,6 +46,7 @@
     <aside class="mirrorPreview" onclick="canvasApi.cssApi().deactivate(this)">
         <canvas id="mirrorCanvas" width="600" height="1"></canvas>    
     </aside>  
+    <div id="loader" class="center"></div> 
 </body>
 <script>
 
@@ -54,8 +55,25 @@
             this.build = build;
             this.other = other;
 
+            this.loadingPage(); 
             this.createBuildSection();
-            this.createOtherSection();    
+            this.createOtherSection();          
+        }
+
+        loadingPage() {
+            document.onreadystatechange = () => { 
+                if (document.readyState !== "complete") { 
+                    document.querySelector( 
+                    "body").style.visibility = "hidden"; 
+                    document.querySelector( 
+                    "#loader").style.visibility = "visible"; 
+                } else { 
+                    document.querySelector( 
+                    "#loader").style.display = "none"; 
+                    document.querySelector( 
+                    "body").style.visibility = "visible"; 
+                } 
+            }; 
         }
 
         createBuildSection() {
@@ -78,7 +96,6 @@
                 const input = document.createElement('textarea');
                 const div = document.createElement('div');
                 input.style.opacity = 0;
-
                 image.src = path + `${i}.jpg`;
                 image.style.maxWidth = '175px';
                 div.appendChild(image);
