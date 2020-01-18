@@ -1,8 +1,7 @@
 .container-fluid {
     display: flex;
     flex-direction: column;
-    max-width: 1350px;
-    
+    max-width: 1350px;   
 }
 
 Header {
@@ -43,9 +42,8 @@ article a {
 }
 
 .other_section div {
-    height: 100px;
-    width: 10%;
- 
+    width: 12.5%;
+    height: unset;
 }
 
 .other_section div > img{
@@ -54,7 +52,7 @@ article a {
 }
 
 .controllers {
-    margin: 20px 0;
+    margin: 5px 0;
 }
 
 .prewiev-inner {
@@ -66,10 +64,10 @@ article a {
 
 .mirrorPreview {
     transition: 2s;
-    width: 120%;
+    width: 100%;
     position: absolute;
    /* backdrop-filter: contrast(30%);*/
-    height: 120%;
+    height: 100%;
     top: 0;
     text-align: center;
     background: rgba(0,0,0,0.6); 
@@ -86,17 +84,19 @@ article a {
 }
 
 @media (max-width: 890.98px) {
-
+    html, body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
     .head {
         display: none;
-    }
-
-    
+    } 
     .prewiev-inner {
         max-height: 500px;
     
     }
-
     .other_section div > img {
         height: 75%;
     }
@@ -104,6 +104,9 @@ article a {
 
 
 @media (max-width: 760.98px) {
+    .canvasClass {
+        width: 300px;
+    }
     .prewiev-inner {
         max-height: 400px;
     
