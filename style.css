@@ -130,6 +130,11 @@ textarea {
 } 
 
 @media (max-width: 890.98px) {
+
+    h5 {
+        text-align: center!important;
+        font-size: 14px;
+    }
     .mirrorCanvasClass {
         width: 100%;
         padding-left: 15%;
@@ -138,8 +143,9 @@ textarea {
         display: none;
     } 
     .prewiev-inner {
-        max-height: 500px;
         width: 100%;
+        max-height: 250px;
+        transform: scale(0.8);
     
     }
     .other_section div {
@@ -149,6 +155,10 @@ textarea {
     .other_section div > img {
         height: 100%;
     }
+    .build_section {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 
@@ -156,15 +166,11 @@ textarea {
     .canvasClass {
         width: 100%;
     }
-    .prewiev-inner {
-        max-height: 400px;
-    
-    }
     .build_section {
         display: flex;
         flex-direction: unset;
         align-items: unset;
-    
+        justify-content: center;  
     }
 }
 
