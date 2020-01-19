@@ -27,8 +27,8 @@ img {
     height: 100%;
 }
 
-textarea {
-    
+h2 {
+    margin: 0;
 }
 
 .build_section {
@@ -144,9 +144,8 @@ textarea {
     } 
     .prewiev-inner {
         width: 100%;
-        max-height: 250px;
-        transform: scale(0.8);
-    
+        max-height: 230px;
+        transform: scale(0.8);   
     }
     .other_section div {
         width: 12.5vw;
