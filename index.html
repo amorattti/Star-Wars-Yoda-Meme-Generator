@@ -51,7 +51,6 @@
     <div id="loader" class="center"></div> 
 </body>
 <script>
-
     class MainFunction {
         constructor(build, other) {
             this.build = build;
@@ -142,22 +141,13 @@
             drake.on('drop', (el, target, source) => {
                 if(target != source || target === build) {                 
                     if(target.children.length > 3 && target === build) {
-                        source.appendChild(target.lastChild)
-                        console.log(el.children[1], '1')
-                    
+                        source.appendChild(target.lastChild);                    
                         this.redrawImages(); 
                     } else {
-                    
-                       
                         this.redrawImages(); 
                     }                
                 };
-              
             });
-            drake.on('drag', (el,target,source) => {
-             //  el.style.width = '40%';
-              console.log(el)
-            })
         }
 
         preview() {
@@ -166,8 +156,9 @@
             const mirrorCanvas = document.getElementById('mirrorCanvas');
             const mirrorCtx = mirrorCanvas.getContext('2d');
             ctx.scale(1.5, 1.5);
+            
             const copyImage = ctx.getImageData(0,0, this.canvas.width, this.canvas.height );
-
+            
             mirrorCanvas.height = this.canvas.height;
             mirrorCtx.putImageData(copyImage, 0,0);     
 
