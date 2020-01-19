@@ -16,6 +16,7 @@ Header {
 
 article > h5 {
     text-align: left;
+    font-size: 16px;
 }
 
 article a {
@@ -131,10 +132,7 @@ h2 {
 
 @media (max-width: 890.98px) {
 
-    h5 {
-        text-align: center!important;
-        font-size: 14px;
-    }
+
     .mirrorCanvasClass {
         width: 100%;
         padding-left: 15%;
@@ -158,10 +156,18 @@ h2 {
         display: flex;
         flex-direction: column;
     }
+    .preview_H5 {
+        text-align: center;
+    }
+    .build_H5 {
+        text-align: center;
+    }
 }
 
-
 @media (max-width: 760.98px) {
+    .preview_H5 {
+        display: none;
+    }
     .canvasClass {
         width: 100%;
     }
