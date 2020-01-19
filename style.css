@@ -22,6 +22,15 @@ article a {
     cursor: pointer;
 }
 
+img {
+    width: 100%;
+    height: 100%;
+}
+
+textarea {
+    
+}
+
 .build_section {
     display: flex;
     flex-direction: column;
@@ -29,16 +38,24 @@ article a {
 
 .build_section div {
     display: flex;
+    width: 40%;
+    position: relative;
 }
 
 .build_section img {
-    max-width: 250px;
     width: 100%;
     overflow: hidden;
 }
 
-.build_section > div > textarea {
-    opacity: 1!important; /*I know -,-*/
+.build_section .textAreaClass {
+    display: block!important;
+    position: absolute;
+    bottom: 0;
+    background: none;
+    right: 0;
+    color: white;
+    width: 100%;
+    resize: none;
 }
 
 .other_section {
@@ -72,7 +89,7 @@ article a {
     width: 100%;
     position: absolute;
    /* backdrop-filter: contrast(30%);*/
-    height: 120%;
+    height: 100%;
     top: 0;
     text-align: center;
     background: rgba(0,0,0,0.6); 
@@ -113,23 +130,31 @@ article a {
 } 
 
 @media (max-width: 890.98px) {
-
+    .mirrorCanvasClass {
+        width: 100%;
+        padding-left: 15%;
+    }
     .head {
         display: none;
     } 
     .prewiev-inner {
         max-height: 500px;
+        width: 100%;
     
     }
+    .other_section div {
+        width: 12.5vw;
+        height: 12.5vw;
+    }
     .other_section div > img {
-        height: 75%;
+        height: 100%;
     }
 }
 
 
 @media (max-width: 760.98px) {
     .canvasClass {
-        width: 300px;
+        width: 100%;
     }
     .prewiev-inner {
         max-height: 400px;
