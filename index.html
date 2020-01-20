@@ -79,20 +79,20 @@
 
         createBuildSection() {
             const from = 1;
-            const to = 3
+            const to = 2
             const path = `build_img/`;
             this.createImages(path, this.build, from, to);
         }
 
         createOtherSection() {   
             const from = 1;
-            const to = 17;     
+            const to = 16;     
             const path = `other_img/`;
             this.createImages(path, this.other, from, to);
         }
 
         createImages(path, parent, from, to) {
-            for (let i = from; i < to; i++) {
+            for (let i = from; i <= to; i++) {
                 const image = document.createElement('img');
                 const input = document.createElement('textarea');
                 const div = document.createElement('div');
@@ -123,8 +123,7 @@
             };
         }
     }
-       
-      
+        
     class CanvasApi extends MainFunction {
         constructor(build, other, canvas){
             super(build, other);
@@ -201,12 +200,12 @@
                 const text = document.getElementsByTagName('textarea')[i].value; 
                 const imgObj = imagesObj[prop];
                 const width =  imagesObj[prop].width;
-                const height = imagesObj[prop].height;
+                const height = imagesObj[prop].height ;
                 const linePosY = dyCanvas + height + 1;       
 
                 this.resize(linePosY, width, context);
                 context.scale(0.7, 0.7);
-                context.drawImage(imgObj, 0, dyCanvas, width, height);  
+                context.drawImage(imgObj, 0, dyCanvas, width, height );  
                 dyCanvas += height;  
                 context.font = "bold 40px sans-serif";
                 context.fillStyle = "white";  
@@ -218,8 +217,8 @@
         // resize to create multilane image canvas
         resize(linePosY, width,context) { 
             const temp = context.getImageData(0, 0, canvas.width, canvas.height);
-            this.canvas.height = linePosY * 0.9;  
-            this.canvas.width = width * 0.7;
+            this.canvas.height = linePosY * 0.7; // multiply because context.scale(0.7, 0.7);
+            this.canvas.width = width * 0.7; // multiply because context.scale(0.7, 0.7);
             context.putImageData(temp, 0, -.90);
         }
 
