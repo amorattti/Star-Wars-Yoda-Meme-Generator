@@ -35,6 +35,7 @@ h2 {
 .build_section {
     display: flex;
     flex-direction: column;
+    min-height: 50px;
 }
 
 .build_section div {
