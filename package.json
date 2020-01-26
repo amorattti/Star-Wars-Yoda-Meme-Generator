@@ -1,0 +1,27 @@
+{
+  "name": "yoda_meme_generator-master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "@comment scripts": [
+    "npm run build resfreshing our dist folder and watching changes in real time",
+    "to watching changes in index html we can use for instance VSC Live server"
+  ],
+  "scripts": {
+    "build": "webpack --mode development --watch",
+    "start:dev": "webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/runtime": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}
