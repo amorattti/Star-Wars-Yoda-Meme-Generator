@@ -13,4 +13,12 @@ export default class AssignClass {
         element.classList.add(this.inactive_css);
         element.classList.remove(this.active_css);
     }
+
+    visibilityOn(element) {
+        element.style.visibility = "visible";
+    }
+
+    visibilityOff(element) {
+        element.style.visibility = "hidden";
+    }
 }

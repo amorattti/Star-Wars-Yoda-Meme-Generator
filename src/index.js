@@ -25,51 +25,48 @@ downloadB.onclick = (e) => canvasApi.download(e.target.parentNode);
 // deactivate mirror blur background on start
 assignClass.deactivate(mirrorPreview);
 
-(() => {     
+(() => {
+    const body = document.querySelector("body");
+    const loader = document.querySelector("#loader");
     const drake = dragula([build, backup]);
-    setEvents(0)
-
+    setEvents(0);
+    // set loader
     document.onreadystatechange = () => {
         if (document.readyState !== "complete") {
-            document.querySelector(
-                "body").style.visibility = "hidden";
-            document.querySelector(
-                "#loader").style.visibility = "visible";
+            assignClass.visibilityOff(body);
+            assignClass.visibilityOn(loader);
         } else {
-            document.querySelector(
-                "#loader").style.display = "none";
-            document.querySelector(
-                "body").style.visibility = "visible";
+            assignClass.deactivate(loader);
+            assignClass.visibilityOn(body);
         }
-    }; 
-     
+    };
+
     drake.on('drop', (el, target, source) => {
-        if(target != source || target === build) {                 
-            if(target.children.length > 3 && target === build) {
-                source.appendChild(target.lastChild);                    
+        if (target != source || target === build) {
+            if (target.children.length > 3 && target === build) {
+                source.appendChild(target.lastChild);
                 canvasApi.redrawImages();
             } else {
-                canvasApi.redrawImages(); 
-            }                
+                canvasApi.redrawImages();
+            }
         };
     });
-
-    function setEvents(i) {
+    //set events in textarea
+    function setEvents(i) { 
         const inputs = document.getElementsByTagName('textarea');
-     
-        if(i < inputs.length) {
-            inputs[i].onblur = () => canvasApi.redrawImages(); 
+
+        if (i < inputs.length) {
+            inputs[i].onblur = () => canvasApi.redrawImages();
             inputs[i].onkeydown = e => {
-                if(e.keyCode === 13) {
-                    canvasApi.redrawImages(); 
+                if (e.keyCode === 13) {
+                    canvasApi.redrawImages();
                 }
-            }        
-            setEvents(i + 1) 
-        }      
+            }
+            setEvents(i + 1)
+        }
     }
-  
 })();
-    
+
 
 
 
