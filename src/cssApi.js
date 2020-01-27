@@ -1,4 +1,4 @@
-export default class AssignClass {
+export default class CssApi {
     constructor() {
         this.active_css = 'active';
         this.inactive_css = 'inactive';

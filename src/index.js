@@ -1,6 +1,6 @@
 import CreateImages from './createElements';
 import CanvasApi from './canvas.js';
-import AssignClass from './assignClass';
+import CssApi from './cssApi';
 
 // containers
 const build = document.getElementById("build");
@@ -15,15 +15,12 @@ const mirrorPreview = document.getElementById('mirrorPreview_Id');
 
 new CreateImages(build, backup); // just create imagines in containers
 const canvasApi = new CanvasApi(build, backup, canvas); // run canvas and use methods
-const assignClass = new AssignClass() // css api, hide or show item
+const cssApi = new CssApi(); // css api, hide or show item
 
 preview.onclick = () => canvasApi.preview();
-mirrorPreview.onclick = (e) => assignClass.deactivate(e.target);
+mirrorPreview.onclick = () => cssApi.deactivate(mirrorPreview);
 previewB.onclick = () => canvasApi.preview();
-downloadB.onclick = (e) => canvasApi.download(e.target.parentNode);
-
-// deactivate mirror blur background on start
-assignClass.deactivate(mirrorPreview);
+downloadB.onclick = e => canvasApi.download(e.target.parentNode);
 
 (() => {
     const body = document.querySelector("body");
@@ -33,11 +30,11 @@ assignClass.deactivate(mirrorPreview);
     // set loader
     document.onreadystatechange = () => {
         if (document.readyState !== "complete") {
-            assignClass.visibilityOff(body);
-            assignClass.visibilityOn(loader);
+            cssApi.visibilityOff(body);
+            cssApi.visibilityOn(loader);
         } else {
-            assignClass.deactivate(loader);
-            assignClass.visibilityOn(body);
+            cssApi.deactivate(loader);
+            cssApi.visibilityOn(body);
         }
     };
 

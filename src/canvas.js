@@ -1,11 +1,11 @@
-import AssignClass from './assignClass';
+import CssApi from './cssApi';
 
 export default class CanvasApi {
     constructor(build, backup, canvas) {
         this.canvas = canvas;
         this.build = build;
         this.backup = backup;
-        this.assignClass = new AssignClass()
+        this.cssApi = new CssApi()
         this.redrawImages();
     }
 
@@ -21,7 +21,7 @@ export default class CanvasApi {
         mirrorCanvas.height = this.canvas.height;
         mirrorCtx.putImageData(copyImage, 0, 0);
 
-        this.assignClass.activate(mirroPreviewELem)
+        this.cssApi.activate(mirroPreviewELem)
     }
 
     download(link) {
