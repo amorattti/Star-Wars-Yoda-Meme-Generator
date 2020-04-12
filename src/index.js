@@ -21,7 +21,7 @@ import {
 
     setLoader(cssApi)
     setOnClickEvents(canvasApi, cssApi);
-    setEventsListener(0, canvasApi);
+    setEventsListener(0);
     dnd(canvasApi);
 })();
 
