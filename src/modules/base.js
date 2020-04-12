@@ -28,7 +28,7 @@ export const dnd = canvasApi => {
     });
 }
 
-export const setEventsListener = (i) => {
+export const setEventsListener = i => {
     const canvasApi = new CanvasApi(DOMelements.build, DOMelements.backup, DOMelements.canvas); 
 
     if (i < DOMelements.inputs.length) {
@@ -42,7 +42,7 @@ export const setEventsListener = (i) => {
     }
 }
 
-export const setLoader = (cssApi) => {
+export const setLoader = cssApi => {
     document.onreadystatechange = () => {
         if (document.readyState !== "complete") {
             cssApi.visibilityOff(DOMelements.body);
