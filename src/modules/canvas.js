@@ -20,7 +20,6 @@ export default class CanvasApi {
 
         mirrorCanvas.height = this.canvas.height;
         mirrorCtx.putImageData(copyImage, 0, 0);
-
         this.cssApi.activate(mirroPreviewELem)
     }
 

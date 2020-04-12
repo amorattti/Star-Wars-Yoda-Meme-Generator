@@ -6,9 +6,6 @@ export default class CreateImages {
         this.build_to = 2;
         this.backup_from = 1;
         this.backup_to = 16;
-
-        this.createBuildSection();
-        this.createBackupSection();
     }
 
     createBuildSection() {
