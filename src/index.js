@@ -49,7 +49,7 @@ downloadB.onclick = e => canvasApi.download(e.target.parentNode);
         };
     });
     //set events in textarea
-    function setEvents(i) { 
+    const setEvents = (i) => { 
         const inputs = document.getElementsByTagName('textarea');
 
         if (i < inputs.length) {
