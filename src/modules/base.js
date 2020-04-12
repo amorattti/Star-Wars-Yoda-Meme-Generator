@@ -14,7 +14,7 @@ export const DOMelements = {
 };
 
 
-export const Dnd = canvasApi => {
+export const dnd = canvasApi => {
     const drake = dragula([DOMelements.build, DOMelements.backup]);
     drake.on('drop', (el, target, source) => {
         if (target != source || target === build) {

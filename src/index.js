@@ -7,7 +7,7 @@ import {
     DOMelements,
     setLoader,
     setOnClickEvents,
-    Dnd
+    dnd
 } from './modules/base';
 
 
@@ -22,7 +22,7 @@ import {
     setLoader(cssApi)
     setOnClickEvents(canvasApi, cssApi);
     setEventsListener(0, canvasApi);
-    Dnd(canvasApi);
+    dnd(canvasApi);
 })();
 
 
