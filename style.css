@@ -5,7 +5,6 @@ html, body {
 }
 
 body {
-    background: url('https://cdn.hipwallpaper.com/i/15/92/TBSj37.jpg');
     background-size: cover;
     background-position: bottom;
 }
@@ -56,6 +55,7 @@ h2 {
     display: flex;
     width: 40%;
     position: relative;
+    margin: 1.5px;
 }
 
 .build_section img {
@@ -67,12 +67,13 @@ h2 {
     display: block!important;
     position: absolute;
     bottom: 0;
-    background: none;
+    background: #0102034d;
     right: 0;
     color: white;
     width: 100%;
     resize: none;
     border: none;
+    font-weight: 700;
 }
 ::-webkit-input-placeholder {
     text-align: center;
