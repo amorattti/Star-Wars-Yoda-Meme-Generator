@@ -1,10 +1,22 @@
-## yoda meme generator
+## Yoda meme generator
 
-simple to handle generator to create and download meme with yoda 
+Simple to handle generator to create and download meme with yoda 
 
 ## Deployment
 
 https://tobiasz18.github.io/yoda_meme_generator/
+
+### Installation locally
+
+  ```sh
+    git clone https://github.com/tobiasz18/yoda_meme_generator.git
+    npm install 
+    npm run build
+    npm start - http://localhost:8080/    
+    
+    Other comment:
+    npm run build:dev - to run webpack with flag --watch 
+  ```
 
 ## Built With
 

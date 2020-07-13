@@ -8,8 +8,9 @@
     "to watching changes in index html we can use for instance VSC Live server"
   ],
   "scripts": {
-    "build": "webpack --mode development --watch",
-    "start:dev": "webpack-dev-server"
+    "build": "webpack",
+    "build:dev": "webpack --mode development --watch",
+    "start": "webpack-dev-server"
   },
   "author": "",
   "license": "ISC",
