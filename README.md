@@ -11,7 +11,7 @@ https://tobiasz18.github.io/yoda_meme_generator/
 ### Installation locally
 
   ```sh
-    git clone https://github.com/tobiasz18/yoda_meme_generator.git
+    git clone https://github.com/tobiasz18/Star-Wars-Yoda-Meme-Generator.git
     npm install 
     npm run build
     npm start - http://localhost:8080/    
