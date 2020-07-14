@@ -24,7 +24,7 @@ export default class CreateImages {
             const input = document.createElement('textarea');
             const div = document.createElement('div');
             image.src = path + `${i}.jpg`;
-            input.maxLength = '28';
+           // input.maxLength = '28';
             input.placeholder = 'add text'
             input.style.display = 'none';
             input.setAttribute('class', 'textAreaClass')

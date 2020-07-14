@@ -6,6 +6,8 @@ Simple to handle generator to create and download meme with yoda
 
 https://tobiasz18.github.io/yoda_meme_generator/
 
+![Boomer](https://i.imgur.com/f5b5sVz.jpg)
+
 ### Installation locally
 
   ```sh

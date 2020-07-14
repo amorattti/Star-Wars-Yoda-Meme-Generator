@@ -25,7 +25,7 @@ export default class CanvasApi {
 
     download(link) {
         link.href = this.canvas.toDataURL();
-        link.download = 'mem.png'   
+        link.download = 'mem.png'
     }
 
     async redrawImages() {
@@ -47,6 +47,7 @@ export default class CanvasApi {
             const width = imagesObj[prop].width;
             const height = imagesObj[prop].height;
             const linePosY = dyCanvas + height + 1;
+            const fontSize = "34px"
 
             this.resize(linePosY, width, context);
             context.scale(0.7, 0.7);
@@ -55,7 +56,16 @@ export default class CanvasApi {
             context.font = "bold 40px sans-serif";
             context.fillStyle = "white";
             context.textBaseline = "middle";
-            context.fillText(text, 85, dyCanvas - 36);
+
+            const lines = this.fragmentText(text, width - parseInt(fontSize, 0), context);
+            lines.forEach(function (line, i) {
+                context.strokeStyle = 'black';
+                context.lineWidth = 8;
+                context.strokeText(line, 20, (i + 1) * parseInt(fontSize, 0) + dyCanvas - 90, width - 50);
+                context.fillStyle = 'white';
+                context.fillText(line, 20, (i + 1) * parseInt(fontSize, 0) + dyCanvas - 90, width - 50);
+            });
+            context.restore();
             i++
         }
     }
@@ -86,5 +96,35 @@ export default class CanvasApi {
                 images[src].src = sources[src];
             }
         })
+    }
+
+    fragmentText(text, maxWidth, context) {
+        let words = text.split(' '),
+            lines = [],
+            line = "";
+        if (context.measureText(text).width < maxWidth) {
+            return [text];
+        }
+        while (words.length > 0) {
+            while (context.measureText(words[0]).width >= maxWidth) {
+                let tmp = words[0];
+                words[0] = tmp.slice(0, -1);
+                if (words.length > 1) {
+                    words[1] = tmp.slice(-1) + words[1];
+                } else {
+                    words.push(tmp.slice(-1));
+                }
+            }
+            if (context.measureText(line + words[0]).width < maxWidth) {
+                line += words.shift() + " ";
+            } else {
+                lines.push(line);
+                line = "";
+            }
+            if (words.length === 0) {
+                lines.push(line);
+            }
+        }
+        return lines;
     }
 }
