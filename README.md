@@ -1,29 +1,34 @@
-## Yoda meme generator
-
-Simple to handle generator to create and download meme with yoda 
-
-## Deployment
-
-https://tobiasz18.github.io/yoda_meme_generator/
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
 ![Boomer](https://i.imgur.com/f5b5sVz.jpg)
 
-### Installation locally
+  Simple to handle generator to create and download meme with yoda 
+  
+<br><br> 
 
-  ```sh
-    git clone https://github.com/tobiasz18/Star-Wars-Yoda-Meme-Generator.git
-    npm install 
-    npm run build
-    npm start - http://localhost:8080/    
-    
-    Other comment:
-    npm run build:dev - to run webpack with flag --watch 
-  ```
+## Deployment
+[Run online project](https://tobiasz18.github.io/Star-Wars-Yoda-Meme-Generator/)
 
-## Built With
+<br><br> 
 
-* Javascript ES6 > - Language
-* HTML 5 - canvas Api, skeleton page
-* CSS3 - style sheet language
-* [Dragula](https://bevacqua.github.io/dragula/) - drag and drop images
-* [Webpack4](https://webpack.js.org/configuration/) - ES6 to ES5 transpiler using babel loader
+### Installation
+```sh
+  git clone https://github.com/tobiasz18/Star-Wars-Yoda-Meme-Generator.git
+  $ npm install
+  $ npm run build
+  $ npm start or use browser reload like vsc Live server instead
+  and 
+  $ npm run build:dev 
+```
+
+<br><br> 
+
+## 🚀 Built with
+![Javascript](https://i.imgur.com/ZDOc9hi.png)
+![CSS](https://i.imgur.com/NZgA6xw.png)
+![HTML](https://i.imgur.com/g00N9Zm.png)
+![Webpack](https://i.imgur.com/fbFcLRP.png)
+![Dragula](https://i.imgur.com/KTXYpJ0.png)
+![stack overflow](https://i.imgur.com/2ldUVh1.png)
+
