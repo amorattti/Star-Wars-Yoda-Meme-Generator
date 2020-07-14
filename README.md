@@ -1,16 +1,13 @@
 <!-- ABOUT THE PROJECT -->
-## About The Project
-
+#
 ![Boomer](https://i.imgur.com/f5b5sVz.jpg)
 
   Simple to handle generator to create and download meme with yoda 
   
-<br><br> 
-
 ## Deployment
 [Run online project](https://tobiasz18.github.io/Star-Wars-Yoda-Meme-Generator/)
 
-<br><br> 
+<br> 
 
 ### Installation
 ```sh
@@ -22,7 +19,7 @@
   $ npm run build:dev 
 ```
 
-<br><br> 
+<br> 
 
 ## 🚀 Built with
 ![Javascript](https://i.imgur.com/ZDOc9hi.png)
