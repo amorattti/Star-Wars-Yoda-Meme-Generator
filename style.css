@@ -8,6 +8,8 @@ body {
     background-position: bottom;
     background-image: url('https://cdn.hipwallpaper.com/i/15/92/TBSj37.jpg');
     background-attachment: inherit;
+    display: flex;
+    align-items: center;
 }
 
 .container-fluid {
