@@ -27,5 +27,5 @@
 ![HTML](https://i.imgur.com/g00N9Zm.png)
 ![Webpack](https://i.imgur.com/fbFcLRP.png)
 ![Dragula](https://i.imgur.com/KTXYpJ0.png)
-![stack overflow](https://i.imgur.com/2ldUVh1.png)
+
 
